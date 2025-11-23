@@ -6,14 +6,12 @@ pkgdesc="A GTK4/Adwaita system tool to manage CPU governor, I/O scheduler, and G
 arch=('x86_64')
 depends=('python-gobject' 'python-psutil' 'pyinstaller')
 makedepends=('pyinstaller')
-source=("${pkgname}-${pkgver}.tar.gz::https://example.com/${pkgname}-${pkgver}.tar.gz"
-        "${pkgname}.desktop")
-sha256sums=('SKIP'
-            'SKIP') # Replace with actual checksums later
+source=("git+https://github.com/franiekidos/antisos-finetuner.git")
+sha256sums=('SKIP') # Replace with actual checksums later
 
 # This package builds a self-contained executable using pyinstaller
 build() {
-  cd "${srcdir}"
+  cd "${srcdir}/${pkgname}"
   
   # Assuming the main Python script is named 'antisos_performance_manager.py'
   /usr/bin/pyinstaller \
@@ -24,7 +22,7 @@ build() {
     --hiddenimport=gi.repository.GLib \
     --hiddenimport=gi.repository.Gdk \
     --hiddenimport=gi.repository.Gio \
-    antisos_performance_manager.py
+    antisos-finetuner
 }
 
 package() {
