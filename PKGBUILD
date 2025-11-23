@@ -27,10 +27,10 @@ build() {
 
 package() {
   # 1. Install the binary executable built by pyinstaller
-  install -D -m755 "${srcdir}/dist/${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
+  install -D -m755 "${srcdir}/${pkgname}/dist/${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
   
   # 2. Install the desktop file
-  install -D -m644 "${srcdir}/${pkgname}.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
+  install -D -m644 "${srcdir}/${pkgname}/${pkgname}.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
 
   # 3. Optional: Install an icon (if you had one, e.g., in a $srcdir/ folder)
   # Since the app uses a built-in system icon ('preferences-system-symbolic'), we skip this.
