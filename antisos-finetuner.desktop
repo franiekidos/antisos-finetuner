@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Antisos Performance Manager
+Comment=System tool to manage CPU and GPU performance profiles.
+Exec=/usr/bin/antisos-performance-manager
+Icon=preferences-system-symbolic
+Terminal=false
+Type=Application
+Categories=Settings;System;Utility;
+Keywords=performance;cpu;gpu;governor;power;gaming;
+StartupNotify=true
